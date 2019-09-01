@@ -1,0 +1,23 @@
+# Image files #
+##############
+
+*.png
+*.mp4
+*.gif
+
+# Virtual environment
+
+venv/
+.idea/
+.DS_Store/
+.ipynb_checkpoints/
+
+# Cache #
+
+__pycache__/
+
+# exlude everything in temp folder
+temp/
+
+# but keep the folder itself
+!temp/.gitkeep 
