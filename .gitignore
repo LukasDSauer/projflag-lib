@@ -1,6 +1,7 @@
-# Image files #
+# Image and 3D files #
 ##############
 
+*.obj
 *.png
 *.mp4
 *.gif
