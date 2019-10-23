@@ -7,7 +7,7 @@ import numpy as np
 import numpy.linalg as la
 
 from ProjGeometryUtility import project_point, line_intersection, connecting_line, transform_four_points
-from EuklGeometryUtility import rotate_vectors, is_in_hull
+from EuklGeometryUtility import rotate_vectors
 from DrawingUtility import drawl, draw_flag, drawtri, draw_polygon, drawcirc
 from LinAlgebraUtility import get_adj
 

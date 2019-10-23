@@ -39,18 +39,54 @@ def draw_flag(d, p, dir, col = "black", t = 30, wop=False, label = ""):
             d.append(draw.Text(label, 10, 100 * p[0], 100 * p[1], center=3, fill='blue'))
 
 def drawpt(d, x, col="blue"):
+    """
+    Draws a point as a small circle.
+
+    :param d: a drawSvg drawing for the output
+    :param x: coordinates of the point
+    :param col: a color that is accepted by colorsys
+    :return:
+    """
     d.append(draw.Circle(100 * x[0], 100 * x[1], 2, fill=col, stroke_width=1, stroke=col))
 
 
 def drawcirc(d, x, r, col="white"):
+    """
+    Draw a circle with specified radius.
+
+    :param d: a drawSvg drawing for the output
+    :param x: coordinates of the center
+    :param r: the radius
+    :param col: a color that is accepted by colorsys
+    :return:
+    """
     d.append(draw.Circle(100 * x[0], 100 * x[1], 100 * r, fill=col, stroke_width=1, stroke=col))
 
 
 def drawl(d, x, y, col="black"):
+    """
+    Draws a line between two points.
+
+    :param d: a drawSvg drawing for the output
+    :param x: start coordinates
+    :param y: end coordinates
+    :param col: a color that is accepted by colorsys
+    :return:
+    """
     d.append(draw.Lines(100 * x[0], 100 * x[1], 100 * y[0], 100 * y[1], close=False, stroke=col))
 
 
 def drawtri(d, p, col="blue", pts=True, fill=0.0):
+    """
+    Draws a triangle spanned by three points.
+
+    :param d: a drawSvg drawing for the output
+    :param p: a list of three coordinates
+    :param col: a color that is accepted by colorsys
+    :param pts: a boolean value, specifying whether the points should be drawn as circles
+    :param fill: intensity of the filling color of the triangle
+    :return:
+    """
     if pts:
         for x in p:
             drawpt(d, x, col)
@@ -66,6 +102,16 @@ def drawtri(d, p, col="blue", pts=True, fill=0.0):
 
 
 def drawquad(d, p, col="blue", pts=False, fill=0.0):
+    """
+    Draws a quadrilateral spanned by four points.
+
+    :param d: a drawSvg drawing for the output
+    :param p: a list of four coordinates
+    :param col: a color that is accepted by colorsys
+    :param pts: a boolean value, specifying whether the points should be drawn as circles
+    :param fill: intensity of the filling color of the quadrilateral
+    :return:
+    """
     if pts:
         for x in p:
             drawpt(d, x, col)

@@ -40,6 +40,12 @@ def construct_from_ratio(ratio):
 
 # draw outer polygon and set points with ratio
 def generate_random(n):  # builds ps qs and flag
+    """
+    Generates a random positive tuple of flags.
+
+    :param n: number of flags
+    :return: a FlagComplex object
+    """
     qs = []
 
     while True:
