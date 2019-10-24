@@ -1,5 +1,4 @@
 #  Developed by Lukas Sauer at the Heidelberg Institute of Theoretical Studies on 2/20/19 11:59 AM.
-#  Contact: lukas.sauer@h-its.org.
 #  Last modified on 2/20/19 11:59 AM.
 #  (C) 2019. All rights reserved.
 
@@ -15,7 +14,6 @@ def construct_from_ratio(ratio):
 
     :param ratio: a float value defining the desired triple ratio
     :return: A FlagComplex object
-    :author: Sven Gruetzmacher
     """
     assert ratio >= 0
     actratio = np.cbrt(ratio)

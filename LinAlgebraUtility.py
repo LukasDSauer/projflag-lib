@@ -1,5 +1,4 @@
 #  Developed by Lukas Sauer at the Heidelberg Institute of Theoretical Studies on 17.05.19, 15:05.
-#  Contact: lukas.sauer@h-its.org.
 #  Last modified on 17.05.19, 15:04.
 #  (C) 2019. All rights reserved.
 

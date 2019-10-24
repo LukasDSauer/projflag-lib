@@ -1,5 +1,4 @@
 #  Developed by Lukas Sauer at the Heidelberg Institute of Theoretical Studies on 3/20/19 11:21 AM.
-#  Contact: lukas.sauer@h-its.org.
 #  Last modified on 3/20/19 11:21 AM.
 #  (C) 2019. All rights reserved.
 
@@ -13,7 +12,6 @@ def rotate_vectors(p, q):
     :param p: The start vector (a 3-dim numpy array)
     :param q: The goal vector (a 3-dim numpy array)
     :return: The rotation matrix (a 3x3-dim numpy array)
-    :author: Sven Gruetzmacher
     """
     p = p / la.norm(p)
     q = q / la.norm(q)

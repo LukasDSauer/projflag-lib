@@ -1,5 +1,4 @@
 #  Developed by Lukas Sauer at the Heidelberg Institute of Theoretical Studies on 2/19/19 5:12 PM.
-#  Contact: lukas.sauer@h-its.org.
 #  Last modified on 2/19/19 5:12 PM.
 #  (C) 2019. All rights reserved.
 
@@ -128,32 +127,6 @@ class FlagComplex:
         """
         self.triangle_subdivision[frozenset(triangle)] = subdivision
 
-
-    def initialize_subdivision(self, triangle):
-        return 0
-        # subdivision = self.triangle_subdivision[frozenset(triangle)] = dict()
-        # tus = self.get_inner_triangle(triangle)
-        # tps = self.get_middle_triangle(triangle)
-        # tqs = self.get_outer_triangle(triangle)
-        # for i in range(3):
-        #     points_in_quad = list()
-        #     points_in_quad.append(triangle[(i - 1)%3])
-        #     #points_in_quad.append((i + 1)%3)
-        #     import copy
-        #     proj_plane_old = copy.deepcopy(self.projection_plane)
-        #     self.set_projection_plane(proj_plane_old + np.array([0.1,0.1,0.1]))
-        #     quad2dim = np.array([self.get_two_dimensional_point(tps[i - 1]), self.get_two_dimensional_point(tps[(i + 1)%3]),
-        #                      self.get_two_dimensional_point(tqs[i]), self.get_two_dimensional_point(tus[i])])
-        #     for j in range(self.n):
-        #         #TODO: This part of the code is not working, as lying in the complex hull is not the right concept of lying inside in projective geometry.
-        #         if j != triangle[(i+1)%3] and j != triangle[(i-1)%3] and is_in_hull(self.get_two_dimensional_point(self.ps[j]), quad2dim):
-        #             print("extra point")
-        #             points_in_quad.append(j)
-        #     subdivision[triangle[i]] = points_in_quad
-        #     self.set_projection_plane(proj_plane_old)
-        # print('Triangle: ', triangle)
-        # print("Subdivision: ", subdivision)
-
     def refresh_setup(self):
         """
         The setup of the flag complex is refreshed by calculating the linear forms l_i defining the projective lines
@@ -246,7 +219,6 @@ class FlagComplex:
         :param triangle: A tuple of three flags (a list of three different integers between 0 and (self.n - 1)).
         :param transformation_style: a string, "P" or "Q"
         :return:
-        :author: Sven Gruetzmacher
         """
         #assert self.get_triple_ratio(triangle) > 0, "The triple of flags is not positive!"
 
@@ -351,7 +323,6 @@ class FlagComplex:
         :param quad: the quadrilateral, i.e. a list of four integers indexing points in self.ps
         :param style: "bulge" for bulge transformation, "shear" for shear transformation
         :return:
-        :author: Lukas Sauer
         """
         # Let p_0 and p_2 be the points on the edge.
         # The basis defining the transformation is v_0 (a vector representing p_0), v_2 (a vector representing p_2)
@@ -406,7 +377,6 @@ class FlagComplex:
         Automatically generates a triangulation of the flag complex.
 
         :return:
-        :author: Sven Gruetzmacher
         """
         self.triangles = []
         #self.internal_edges = []
@@ -424,7 +394,6 @@ class FlagComplex:
 
         :param triangle: Three indices of flags in our flag complex (a list of three integers)
         :return: a list of three 3-dim numpy arrays
-        :author: Lukas Sauer
         """
         # TODO: For this to make sense, the triple ratio of the triangle must be positive.
         tps = self.get_middle_triangle(triangle)
@@ -460,7 +429,6 @@ class FlagComplex:
 
         :param triangle: Three indices of flags in our flag complex (a list of three integers)
         :return: a list of three 3-dim numpy arrays
-        :author: Lukas Sauer
         """
         # Inside this function, we use nomenclature from Wienhard/Zhang, so tqs[i] is the intersection of the lines
         # l_i-1 and l_i+1 (i.e. tqs[i] lies opposite of tps[i]).
@@ -696,7 +664,6 @@ class FlagComplex:
         :param point: a three-dim. numpy array
         :param resolution: A fourth of the number of points in the list returned.
         :return: A list of three dimensional numpy arrays.
-        :author: Lukas Sauer
         """
 
         # For every four points in general position, there is a projective transformation that maps them
@@ -722,7 +689,6 @@ class FlagComplex:
             # Transforming [1,1,1] to original coordinates would yield:
             print("Point defining tangent line to ellipse in " + str(point) + " is:" + str(np.matmul(transformation, np.array([1, 1, 1]))))
             # This gives us the possibility to draw the exact tangent line.
-
 
         # Now, as a last step, we transform everything back to the original coordinates.
         return [np.matmul(transformation, p) for p in conic]

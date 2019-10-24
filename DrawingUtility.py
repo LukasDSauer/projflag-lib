@@ -1,5 +1,4 @@
 #  Developed by Lukas Sauer at the Heidelberg Institute of Theoretical Studies on 2/20/19 10:51 AM.
-#  Contact: lukas.sauer@h-its.org.
 #  Last modified on 2/20/19 10:51 AM.
 #  (C) 2019. All rights reserved.
 
@@ -8,7 +7,6 @@ import numpy as np
 from numpy import linalg as la
 import colorsys as cl
 
-# Helper functions mainly written by Sven Gruetzmacher
 # All this function take two-dimensional euclidean real coordinates
 
 def draw_flag(d, p, dir, col = "black", t = 30, wop=False, label = ""):
@@ -21,7 +19,6 @@ def draw_flag(d, p, dir, col = "black", t = 30, wop=False, label = ""):
     :param col: a color that is accepted by colorsys
     :param t: the length of the line
     :return:
-    :author: Sven Gruetzmacher
     """
     if not wop:
         drawpt(d, p, col=col)
@@ -136,7 +133,6 @@ def draw_polygon(d, polygon, col=["#7575ff", "#75ff75", "#ff7575"], wop = True):
     :param polygon: A list of points
     :param col: A list of colours
     :return:
-    :author: Lukas Sauer
     """
     length = len(polygon)
 
@@ -162,7 +158,6 @@ def draw_path(d, points, col="blue", fillcol=None, wop=True, fill=0.0, width=2):
     :param fill:
     :param width:
     :return:
-    :author: Sven Gruetzmacher.
     """
     if fillcol is None:
         fillcol = col
