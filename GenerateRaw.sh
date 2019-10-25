@@ -1,11 +1,11 @@
-# In a programming environment, you may not need the DrawingUtilities and the tutorials. This bash
+# In a programming environment, you may not needus the tutorials. This bash
 # script generates a raw version of the project without the unnecessary files.
 
-mkdir flagcomplex-raw/
+mkdir flagcomplex/
 
-cp FlagComplex.py flagcomplex-raw/
-cp EuklGeometryUtility.py flagcomplex-raw/
-cp ProjGeometryUtility.py flagcomplex-raw/
-cp LinAlgebraUtility.py flagcomplex-raw/
+cp FlagComplex.py flagcomplex/
+cp EuklGeometryUtility.py flagcomplex/
+cp ProjGeometryUtility.py flagcomplex/
+cp DrawingUtility.py flagcomplex/
 
 printf "Successfully generated a raw flagcomplex project."

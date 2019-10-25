@@ -13,6 +13,6 @@ This is a project to visualize tuples of flags in the real projective plane. A f
 
 * `Model3DMaker` contains helper functions to generate 3D models.
 
-* `EuklGeometryUtility`, `ProjGeometryUtility` and `LinAlgebraUtility` contain helper functions for calculations.
+* `EuklGeometryUtility` and `ProjGeometryUtility` contain helper functions for calculations.
 
 * `Examples` contains some helper functions to generate exemplary flag tuples: random tuples and tuples with a certain triple ratio.

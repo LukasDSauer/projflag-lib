@@ -8,7 +8,6 @@ import numpy.linalg as la
 from ProjGeometryUtility import project_point, line_intersection, connecting_line, transform_four_points
 from EuklGeometryUtility import rotate_vectors
 from DrawingUtility import drawl, draw_flag, drawtri, draw_polygon, drawcirc
-from LinAlgebraUtility import get_adj
 
 
 class FlagComplex:
@@ -244,12 +243,9 @@ class FlagComplex:
 
         #  Transform the transformation matrices g_i to the standard basis
         base_change_to_std = basis.T
-        # The base change from standard basis is of course given by the inverse.
-        # However, as we are talking about projective transformations, we can multiply by a non-zero scalar.
-        # In this case, if we multiply by the determinant, we get the adjunct, thus we can use the adjunct matrix
-        # as well, hopefully using less divisions and avoiding numerical cancellation.
-        base_change_from_std = get_adj(base_change_to_std)#la.inv(base_change_to_std)
+        base_change_from_std = la.inv(base_change_to_std)
         gs = [np.matmul(np.matmul(base_change_to_std, x), base_change_from_std) for x in gs]
+
 
         # Perform the eruption flow on the triangle
         for i in range(3):
