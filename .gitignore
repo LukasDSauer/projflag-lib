@@ -18,7 +18,7 @@ venv/
 __pycache__/
 
 # exlude everything in temp folder
-tutorials/temp/
+examples/temp/
 
 # but keep the folder itself
-!tutorials/temp/.gitkeep 
+!examples/temp/.gitkeep
