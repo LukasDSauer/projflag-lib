@@ -28,5 +28,6 @@ setuptools.setup(
     install_requires=[
         "numpy>=1.17.3",
         "drawSvg>=1.0.2"
+        "scipy>=1.1.0"
     ]
 )
