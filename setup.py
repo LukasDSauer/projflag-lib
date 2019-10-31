@@ -10,7 +10,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="flagcomplex",
-    version="0.1.0",
+    version="0.1.1",
     author="Lukas D. Sauer",
     # author_email="author@example.com",
     description="This is a project to visualize tuples of flags in the real projective plane."
