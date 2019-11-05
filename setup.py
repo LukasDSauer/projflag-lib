@@ -10,7 +10,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="flagcomplex",
-    version="0.1.1",
+    version="0.1.2",
     author="Lukas D. Sauer",
     # author_email="author@example.com",
     description="This is a project to visualize tuples of flags in the real projective plane."
@@ -27,7 +27,7 @@ setuptools.setup(
     python_requires='>=3.6',
     install_requires=[
         "numpy>=1.17.3",
-        "drawSvg>=1.0.2"
+        "drawSvg>=1.0.2",
         "scipy>=1.1.0"
     ]
 )
