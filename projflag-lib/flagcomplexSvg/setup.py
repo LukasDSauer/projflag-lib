@@ -21,7 +21,7 @@ setuptools.setup(
     ],
     python_requires='>=3.6',
     install_requires=[
-        "flagcomplex>=2.0.0",
+        "flagcomplex", # ">=2.00"
         "drawSvg==1.0.2",
     ]
 )
