@@ -13,11 +13,11 @@ setuptools.setup(
     version="2.0.0dev",
     author="Lukas D. Sauer",
     # author_email="author@example.com",
-    description="This is a project to visualize tuples of flags in the real projective plane."
+    description="This is a project to perform transformations on flags in the real projective plane."
                 " It was developed at Heidelberg Institute for Theoretical Studies in 2019.",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/LukasDSauer/flagcomplex",
+    url="https://github.com/LukasDSauer/projflag-lib/projflag-lib/flagcomplex",
     packages=setuptools.find_packages(),
     classifiers=[
         "Programming Language :: Python :: 3",
@@ -27,7 +27,6 @@ setuptools.setup(
     python_requires='>=3.6',
     install_requires=[
         "numpy==1.17.3",
-        "drawSvg==1.0.2",
         "scipy==1.1.0"
     ]
 )
