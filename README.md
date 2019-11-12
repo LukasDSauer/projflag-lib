@@ -1,4 +1,4 @@
-#projflag-lib
+# projflag-lib
 
 This library is a collection of several packages for transforming and visualizing tuples of flags in the real
 projective plane. For now, each package has to be installed separately. In the future, it
