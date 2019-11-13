@@ -5,14 +5,17 @@
 
 from . import FlagComplex
 from scipy.spatial import ConvexHull
+import numpy as np
 
 
-def construct_from_ratio(ratio):
+def construct_from_ratio(ratio, empty_complex=FlagComplex()):
     """
     Constructs a triple of flags with a certain triple ratio.
 
     :param ratio: a float value defining the desired triple ratio
-    :return: A flagcomplex object
+    :param empty_complex: an empty FlagComplex object. Specify this if you want to initialize a child of
+    the FlagComplex class.
+    :return: A FlagComplex object
     """
     assert ratio >= 0
     actratio = np.cbrt(ratio)
@@ -25,7 +28,7 @@ def construct_from_ratio(ratio):
 
     qs = [np.eye(3)[i] for i in range(3)]
 
-    fcomplex = FlagComplex()
+    fcomplex = empty_complex
     for i in range(3):
         fcomplex.add_flag(ps[i], qs[(i+2) % 3])
 
@@ -36,11 +39,13 @@ def construct_from_ratio(ratio):
 
 
 # draw outer polygon and set points with ratio
-def generate_random(n):  # builds ps qs and flag
+def generate_random(n, empty_complex=FlagComplex()):  # builds ps qs and flag
     """
     Generates a random positive tuple of flags.
 
     :param n: number of flags
+    :param empty_complex: an empty FlagComplex object. Specify this if you want to initialize a child of
+    the FlagComplex class.
     :return: a flagcomplex object
     """
     qs = []
@@ -76,7 +81,7 @@ def generate_random(n):  # builds ps qs and flag
         pt = (1 - ratio) * qs[(i + 1) % n][:2] + ratio * qs[i][:2]
         ps.append(np.array([pt[0], pt[1], 1]))
 
-    fcomplex = FlagComplex()
+    fcomplex = empty_complex
 
     for i in range(n):
         fcomplex.add_flag(ps[i], qs[i])

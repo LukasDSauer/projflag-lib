@@ -1,10 +1,49 @@
 from flagcomplex import FlagComplex
 from .DrawingUtility import drawl, draw_flag, drawtri, draw_polygon, drawcirc
+from flagcomplex.ProjGeometryUtility import line_intersection, connecting_line
+from flagcomplex.EuklGeometryUtility import rotate_vectors
+import numpy as np
 
 
 class FlagComplexSvg(FlagComplex):
+
     def __init__(self):
-        super.__init(self)
+        super().__init__()
+
+        self.image_bottom_line = None
+        self.image_top_line = None
+        self.image_left_line = None
+        self.image_right_line = None
+
+    def initialize_canvas(self, width=800, height = 450, origin=(-400, -225)):
+        """
+        Sets up a drawSvg object that can be used as a canvas for drawing.
+
+        :param width:
+        :param height:
+        :param origin:
+        :return:
+        """
+        rotation_matrix = rotate_vectors(np.array([0, 0, 1]), self.projection_plane)
+
+        self.image_bottom_line = connecting_line(np.array([origin[0]/100, origin[1]/100, 1]), np.array([(origin[0] + width)/100, origin[1]/100, 1]))
+        self.image_top_line = connecting_line(np.array([origin[0]/100, (origin[1] + height)/100, 1]), np.array([(origin[0] + width)/100, (origin[1] + height)/100, 1]))
+        self.image_left_line = connecting_line(np.array([origin[0]/100, (origin[1])/100, 1]), np.array([(origin[0])/100, (origin[1] + height)/100, 1]))
+        self.image_right_line = connecting_line(np.array([(origin[0] + width)/100, (origin[1])/100, 1]), np.array([(origin[0] + width)/100, (origin[1] + height)/100, 1]))
+
+        self.image_bottom_line = np.matmul(rotation_matrix, self.image_bottom_line)
+        self.image_top_line = np.matmul(rotation_matrix, self.image_top_line)
+        self.image_left_line = np.matmul(rotation_matrix, self.image_left_line)
+        self.image_rigth_line = np.matmul(rotation_matrix, self.image_right_line)
+
+        import drawSvg as draw
+        d = draw.Drawing(width, height, origin=origin)
+        # White background for the pictures
+        drawcirc(d, [0, 0], 8)
+        # Render size for the pictures (resolution in terms of image width)
+        d.setRenderSize(w=2560)
+
+        return d
 
     def visualize_polygon(self, d, polygon, col):
         """

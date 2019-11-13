@@ -1,12 +1,3 @@
-#  Developed by Lukas Sauer at the Heidelberg Institute of Theoretical Studies on 10/30/19, 5:01 PM.
-#  Contact: lukas.sauer@h-its.org.
-#  Last modified on 10/25/19, 4:50 PM.
-#  (C) 2019. All rights reserved.
-
-#  Developed by Lukas Sauer at the Heidelberg Institute of Theoretical Studies on 2/19/19 5:12 PM.
-#  Last modified on 2/19/19 5:12 PM.
-#  (C) 2019. All rights reserved.
-
 from .ProjGeometryUtility import project_point, line_intersection, connecting_line, transform_four_points
 from .EuklGeometryUtility import rotate_vectors
 
@@ -60,41 +51,6 @@ class FlagComplex:
         # A dictionary of sets. The keys are frozensets of three elements (i.e. triangles), its elements are dictionaries.
         # Each of these dictionaries has integers as keys (these specify points), and a set of points as element.
         self.triangle_subdivision = dict()
-
-        self.image_bottom_line = None
-        self.image_top_line = None
-        self.image_left_line = None
-        self.image_right_line = None
-
-    def initialize_canvas(self, width=800, height = 450, origin=(-400, -225)):
-        """
-        Sets up a drawSvg object that can be used as a canvas for drawing.
-
-        :param width:
-        :param height:
-        :param origin:
-        :return:
-        """
-        rotation_matrix = rotate_vectors(np.array([0, 0, 1]), self.projection_plane)
-
-        self.image_bottom_line = connecting_line(np.array([origin[0]/100, origin[1]/100, 1]), np.array([(origin[0] + width)/100, origin[1]/100, 1]))
-        self.image_top_line = connecting_line(np.array([origin[0]/100, (origin[1] + height)/100, 1]), np.array([(origin[0] + width)/100, (origin[1] + height)/100, 1]))
-        self.image_left_line = connecting_line(np.array([origin[0]/100, (origin[1])/100, 1]), np.array([(origin[0])/100, (origin[1] + height)/100, 1]))
-        self.image_right_line = connecting_line(np.array([(origin[0] + width)/100, (origin[1])/100, 1]), np.array([(origin[0] + width)/100, (origin[1] + height)/100, 1]))
-
-        self.image_bottom_line = np.matmul(rotation_matrix, self.image_bottom_line)
-        self.image_top_line = np.matmul(rotation_matrix, self.image_top_line)
-        self.image_left_line = np.matmul(rotation_matrix, self.image_left_line)
-        self.image_rigth_line = np.matmul(rotation_matrix, self.image_right_line)
-
-        import drawSvg as draw
-        d = draw.Drawing(width, height, origin=origin)
-        # White background for the pictures
-        drawcirc(d, [0, 0], 8)
-        # Render size for the pictures (resolution in terms of image width)
-        d.setRenderSize(w=2560)
-
-        return d
 
     def add_flag(self, p, direction):
         """
