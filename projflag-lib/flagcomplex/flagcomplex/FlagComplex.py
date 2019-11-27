@@ -114,13 +114,6 @@ class FlagComplex:
         :param vector: The normal vector on the projection plane (a numpy array with three coordinates).
         :return:
         """
-        if self.image_bottom_line is not None:
-            rotation_matrix = rotate_vectors(self.projection_plane, vector)
-
-            lines = [self.image_bottom_line, self.image_top_line, self.image_left_line, self.image_right_line]
-
-            for line in lines:
-                line = np.matmul(rotation_matrix, line)
         self.projection_plane = vector / la.norm(vector)
 
     def draw_complex(self):

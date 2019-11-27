@@ -21,13 +21,19 @@ Even though step 1 is optional, I recommend installing them inside a virtual env
    ```
    pip3 install path/to/flagcomplex
     ```
-   which actually copies the files to your virtual environment.
+   which actually copies the files to your virtual environment or
+   
+   ```
+   pip3 install "git+<url-to-git-repo>#egg=flagcomplex&subdirectory=projflag-lib/flagcomplex"
+   ```
+   if you want to install directly from a git repository (e.g. from GitHub).
    
    If you don't need it anymore
    ```
    pip3 uninstall flagcomplex
    ```
    will remove the package.
+   
 3. If you want to visualize movies with the tutorial notebooks, you will
    need to install `moviepy` as well.
 4. Start the notebook with

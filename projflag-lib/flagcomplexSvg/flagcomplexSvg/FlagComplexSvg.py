@@ -15,6 +15,18 @@ class FlagComplexSvg(FlagComplex):
         self.image_left_line = None
         self.image_right_line = None
 
+    def set_projection_plane(self, vector):
+        if self.image_bottom_line is not None:
+            rotation_matrix = rotate_vectors(self.projection_plane, vector)
+
+            lines = [self.image_bottom_line, self.image_top_line, self.image_left_line, self.image_right_line]
+
+            for line in lines:
+                line = np.matmul(rotation_matrix, line)
+
+        super().set_projection_plane(vector)
+
+
     def initialize_canvas(self, width=800, height = 450, origin=(-400, -225)):
         """
         Sets up a drawSvg object that can be used as a canvas for drawing.
