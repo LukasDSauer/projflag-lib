@@ -459,12 +459,12 @@ class FlagComplex:
         :return:
         """
         numerator = np.dot(self.ls[triangle[0]], self.ps[triangle[1]]) \
-                    * np.dot(self.ls[triangle[1]], self.ps[triangle[2]]) \
-                    * np.dot(self.ls[triangle[2]], self.ps[triangle[0]])
+            * np.dot(self.ls[triangle[1]], self.ps[triangle[2]]) \
+            * np.dot(self.ls[triangle[2]], self.ps[triangle[0]])
 
         denominator = np.dot(self.ls[triangle[0]], self.ps[triangle[2]]) \
-                    * np.dot(self.ls[triangle[2]], self.ps[triangle[1]]) \
-                    * np.dot(self.ls[triangle[1]], self.ps[triangle[0]])
+            * np.dot(self.ls[triangle[2]], self.ps[triangle[1]]) \
+            * np.dot(self.ls[triangle[1]], self.ps[triangle[0]])
         return numerator / denominator
     
     def get_conic_through_flags_and_point(self, flag1, flag2, point, resolution, print_tangent_vector = False):
