@@ -444,6 +444,28 @@ class FlagComplex:
                 self.drawqs.append(None)
         return self.drawqs
 
+    def get_projected_us(self, triangle, rotation_matrix=None):
+        if rotation_matrix is None:
+            rotation_matrix = rotate_vectors(self.projection_plane, np.array([0, 0, 1]))
+        drawus = []
+
+        us = self.get_inner_triangle(triangle)
+
+        for u in us:
+            try:
+                # We have the possibility to transform every point by a globally defined transformation for better
+                # visualisation.
+                if self.projective_transformation is not None:
+                    u = np.matmul(self.projective_transformation, u)
+                drawu = project_point(self.projection_plane, u)
+                drawu = np.matmul(rotation_matrix, drawu)
+                drawus.append(drawu[:2])
+            except AssertionError:
+                print("Warning! The point " + str(u) + " is on the boundary plane. Therefore it cannot be projected.")
+                drawus.append(None)
+        return drawus
+
+
     def get_triple_ratio(self, triangle):
         """
         Returns the triple ratio of the triple of flags.
