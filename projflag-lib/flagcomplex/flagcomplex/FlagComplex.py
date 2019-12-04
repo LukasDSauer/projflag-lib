@@ -481,6 +481,34 @@ class FlagComplex:
             * np.dot(self.ls[triangle[2]], self.ps[triangle[1]]) \
             * np.dot(self.ls[triangle[1]], self.ps[triangle[0]])
         return numerator / denominator
+
+    def is_complex_positive(self):
+        """
+        The triple ratio is only defined for a triple of flags.
+        We call an n-tuple of flags positive, if the triple ratio
+        of all triangles [i, j, k] is positive.
+
+        Here, i,j,k are in {1,2,..., n}, and
+
+        i < j < k < i
+
+        in the cyclic ordering of {1,2,...,n}. Note that the triple
+        ratio is invariant under cyclic permutations, so w.l.o.g.
+
+        1 <= i < j < k <= n.
+        """
+        if self.n <= 2:
+            return False
+        for i in range(self.n):
+            for j in range(i, self.n):
+                for k in range(j, self.n):
+                    triangle = [i, j, k]
+                    if 0 >= self.get_triple_ratio(triangle):
+                        return False
+        return True
+
+
+
     
     def get_conic_through_flags_and_point(self, flag1, flag2, point, resolution, print_tangent_vector = False):
         """
