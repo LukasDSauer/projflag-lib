@@ -10,7 +10,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="flagcomplex",
-    version="2.2.0",
+    version="2.3.0dev",
     author="Lukas D. Sauer",
     # author_email="author@example.com",
     description="This is a project to perform transformations on flags in the real projective plane."

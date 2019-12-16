@@ -53,7 +53,7 @@ class FlagTesselator:
 
         :return:
         """
-        #self.flagcomplex.refresh_setup()
+        self.flagcomplex.refresh_setup()
         self.initial = np.array([p for p in self.flagcomplex.ps])
         self.qs = self.flagcomplex.qs
         # The lines we want to reflect along are the connecting lines of points p_i and p_i-1.
