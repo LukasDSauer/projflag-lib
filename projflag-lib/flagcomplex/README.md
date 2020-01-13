@@ -8,3 +8,12 @@ This is a project to perform geometric transformations tuples of flags in the re
   * `FlagTesselator`: A positive tuple of flags defines a polygon. By iteratively reflecting these polygon, a convex set can be generated. This class generates such a convex set.
   * `EuklGeometryUtility` and `ProjGeometryUtility` contain helper functions for calculations.
   * `AutoComplex` contains some helper functions to generate exemplary flag tuples: random tuples and tuples with a certain triple ratio.
+  
+## Installation instruction
+
+1. Install a virtual Python3 environment and activate it (check the internet, if you don't know how). This step is optional.
+
+2. Install the package using
+```
+pip3 install "git+https://github.com/LukasDSauer/projflag-lib#egg=flagcomplex&subdirectory=projflag-lib/flagcomplex"
+```
