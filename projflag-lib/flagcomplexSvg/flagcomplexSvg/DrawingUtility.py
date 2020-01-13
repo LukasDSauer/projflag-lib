@@ -9,6 +9,7 @@ import colorsys as cl
 
 # All this function take two-dimensional euclidean real coordinates
 
+
 def draw_flag(d, p, dir, col = "black", t = 30, wop=False, label = ""):
     """
     Draws a flag defined by the point p and another point dir to define the line.
@@ -34,6 +35,7 @@ def draw_flag(d, p, dir, col = "black", t = 30, wop=False, label = ""):
 
         if label != "":
             d.append(draw.Text(label, 10, 100 * p[0], 100 * p[1], center=3, fill='blue'))
+
 
 def drawpt(d, x, col="blue"):
     """
@@ -92,9 +94,9 @@ def drawtri(d, p, col="blue", pts=True, fill=0.0):
     x = p[0]
     y = p[1]
     z = p[2]
-    d.append(draw.Lines(100 * x[0], 100 * x[1], \
-                        100 * y[0], 100 * y[1], \
-                        100 * z[0], 100 * z[1], \
+    d.append(draw.Lines(100 * x[0], 100 * x[1],
+                        100 * y[0], 100 * y[1],
+                        100 * z[0], 100 * z[1],
                         close=True, stroke=col, fill=col, fill_opacity=str(fill)))
 
 
@@ -118,20 +120,21 @@ def drawquad(d, p, col="blue", pts=False, fill=0.0):
     y = p[1]
     z = p[2]
     v = p[3]
-    d.append(draw.Lines(100 * x[0], 100 * x[1], \
-                        100 * y[0], 100 * y[1], \
-                        100 * z[0], 100 * z[1], \
-                        100 * v[0], 100 * v[1], \
+    d.append(draw.Lines(100 * x[0], 100 * x[1],
+                        100 * y[0], 100 * y[1],
+                        100 * z[0], 100 * z[1],
+                        100 * v[0], 100 * v[1],
                         close=True, stroke=col, fill=col, stroke_opacity=str(fill), fill_opacity=str(fill)))
 
 
-def draw_polygon(d, polygon, col=["#7575ff", "#75ff75", "#ff7575"], wop = True):
+def draw_polygon(d, polygon, col=["#7575ff", "#75ff75", "#ff7575"], wop=True):
     """
     This function connects the list of lists of points in polygon by lines and adds it to the drawing d.
     For each list of points in polygon, a different colour can be used.
     :param d: A drawSvg drawing
     :param polygon: A list of points
     :param col: A list of colours
+    :param wop: "WithOut Points" -- boolean parameter specifying whether to draw without or with points
     :return:
     """
     length = len(polygon)

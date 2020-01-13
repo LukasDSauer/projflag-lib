@@ -197,7 +197,6 @@ class FlagComplex:
         base_change_from_std = la.inv(base_change_to_std)
         gs = [np.matmul(np.matmul(base_change_to_std, x), base_change_from_std) for x in gs]
 
-
         # Perform the eruption flow on the triangle
         for i in range(3):
             if transformation_style == 'Q':
@@ -263,7 +262,7 @@ class FlagComplex:
 
         Compare [WZ17], section 3.3, for a definition of the respective transformations (flows).
 
-        :param b
+        :param t: the transformation parameter
         :param quad: the quadrilateral, i.e. a list of four integers indexing points in self.ps
         :param style: "bulge" for bulge transformation, "shear" for shear transformation
         :return:

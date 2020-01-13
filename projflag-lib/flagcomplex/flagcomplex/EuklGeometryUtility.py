@@ -5,6 +5,7 @@
 import numpy as np
 import numpy.linalg as la
 
+
 def rotate_vectors(p, q):
     """
     This function calculates the the rotation matrix needed to rotate the vector p to the direction of the vector
@@ -24,14 +25,15 @@ def rotate_vectors(p, q):
     cross = np.cross(p, q)
     ncross = la.norm(cross)
 
-    G = np.array([[scal, -ncross, 0], \
-                  [ncross, scal, 0], \
+    G = np.array([[scal, -ncross, 0],
+                  [ncross, scal, 0],
                   [0, 0, 1]])
     midvec = q - scal * p
     midvec = midvec / la.norm(midvec)
     basechangeinv = np.array([p, midvec, cross]).T
 
     return np.matmul(np.matmul(basechangeinv, G), la.inv(basechangeinv))
+
 
 def rotate_by_angle_2dim(angle):
     """

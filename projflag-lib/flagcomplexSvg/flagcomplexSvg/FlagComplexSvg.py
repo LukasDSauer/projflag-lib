@@ -23,9 +23,9 @@ class FlagComplexSvg(FlagComplex):
 
             for line in lines:
                 line = np.matmul(rotation_matrix, line)
-
         super().set_projection_plane(vector)
 
+        return None
 
     def initialize_canvas(self, width=800, height = 450, origin=(-400, -225)):
         """
