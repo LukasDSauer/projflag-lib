@@ -33,10 +33,12 @@ Even though step 1 is optional, I recommend installing them inside a virtual env
    pip3 uninstall flagcomplex
    ```
    will remove the package.
+
+3. Install the `flagcomplexSvg` package the same way as the `flagcomplex` package.
    
-3. If you want to visualize movies with the tutorial notebooks, you will
+4. If you want to visualize movies with the tutorial notebooks, you will
    need to install `moviepy` as well.
-4. Start the notebook with
+5. Start the notebook with
    ```
    jupyter-notebook tutorial-<name>.ipynb
    ```
