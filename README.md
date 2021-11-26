@@ -9,3 +9,8 @@ would be nice to install all of them in a bundle.
 Furthermore it implements several transformations, such as the eruption flow, the bulge flow and the shear flow.
 * `projflag-lib/flagcomplexSvg/` is a package intended for visualizing tuples of flags implemented in the flagcomplex package.
 * `examples/` contains Jupyter notebooks with commented examples of the code functionality. The `temp/` subfolder is necessary for generating image files on the way.
+
+## Developers
+
+* Lukas Sauer, *Author*
+* Sven Grützmacher, *Contributor*
