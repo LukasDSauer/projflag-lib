@@ -26,7 +26,7 @@ setuptools.setup(
     ],
     python_requires='>=3.6',
     install_requires=[
-        "numpy==1.17.4",
-        "scipy==1.7.2"
+        "numpy>=1.17.4",
+        "scipy>=1.7.2"
     ]
 )
